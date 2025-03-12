@@ -1,0 +1,35 @@
+version: "3.8"
+
+networks:
+  local_network:
+    driver: bridge
+
+services:
+  jet:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jet
+    platform: linux/arm64
+    tty: true
+    restart: unless-stopped
+    networks:
+      local_network:
+        aliases:
+          - jet
+    environment:
+      - ROS_DOMAIN_ID=1
+  rpi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rpi
+    platform: linux/arm64
+    tty: true
+    restart: unless-stopped
+    networks:
+        local_network:
+          aliases:
+            - rpi
+    environment:
+      - ROS_DOMAIN_ID=1

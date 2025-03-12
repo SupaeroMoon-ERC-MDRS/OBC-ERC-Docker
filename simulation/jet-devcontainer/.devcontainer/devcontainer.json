@@ -1,0 +1,11 @@
+{
+  "name": "SupaeroMoon",
+  "dockerComposeFile": "../../src/docker-compose.yml",
+  "service": "jet",
+  "runServices": [
+    "jet"
+  ],
+  "workspaceFolder": "/workspace",
+  "shutdownAction": "stopCompose",
+  "remoteUser": "root"
+}
